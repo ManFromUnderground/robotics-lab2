@@ -10,10 +10,10 @@ def H_1():
     a = p2_sol.translate_x(2.5)
     b = p2_sol.translate_z(0.5)
     c = p2_sol.translate_y(-1.5)
-    # get dot product of a and post multiplied b
-    var = np.dot(a, b)
+    # get product of a and post multiplied b
+    var = np.matmul(a, b)
     # post multipy c
-    var = np.dot(var, c)
+    var = np.matmul(var, c)
     return var
 
 def H_2():
@@ -21,9 +21,9 @@ def H_2():
     b = p2_sol.translate_x(2.5)
     c = p2_sol.translate_y(-1.5)
     # post multiply b on a
-    var = np.dot(a, b)
+    var = np.matmul(a, b)
     # post multiply c
-    var = np.dot(var, c)
+    var = np.matmul(var, c)
     return var
 
 def H_3():
@@ -31,9 +31,9 @@ def H_3():
     b = p2_sol.translate_z(0.5)
     c = p2_sol.translate_y(-1.5)
     # pre multiply c on b
-    var = np.dot(c, b)
+    var = np.matmul(c, b)
     # pre multiply the previous product on a
-    var = np.dot(var, a)
+    var = np.matmul(var, a)
     return var
 
 
@@ -42,9 +42,9 @@ def H_4():
     b = p2_sol.translate_x(2.5)
     c = p2_sol.translate_y(-1.5)
     # pre multiply c on b
-    var = np.dot(c, b)
+    var = np.matmul(c, b)
     # pre multiply the previous product on a
-    var = np.dot(var, a)
+    var = np.matmul(var, a)
     return var
 
 
@@ -54,15 +54,15 @@ def H_5():
     # translate 3 across current x axis
     b = p2_sol.translate_x(3)
     # post multiply b on a
-    var = np.dot(a, b)
+    var = np.matmul(a, b)
     # translate -3 across current z axis
     c = p2_sol.translate_z(-3)
     # post multipy c with the previous product
-    var = np.dot(var, c)
+    var = np.matmul(var, c)
     # rotate by angle -pi/2 about current z axis
     d = p2_sol.rotate_z((-1) * (math.pi / 2))
     # post multiplies d with previous product
-    var = np.dot(var, d)
+    var = np.matmul(var, d)
     return var
 
 
