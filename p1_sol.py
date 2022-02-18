@@ -16,8 +16,8 @@ def roll_pitch_yaw(xr, yr, zr):
     yt = rbm.rot_y(yr)
     # takes z input and gets a rotation matrix for it
     zt = rbm.rot_z(zr)
-    var = np.dot(yt, xt)
-    var = np.dot(zt, var)
+    var = np.matmul(yt, xt)
+    var = np.matmul(zt, var)
 
     return var
 
